@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/test.css' %}">
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			{% for product in products %}
+			<div class="col-lg-4">
+				<div class="card">
+					<img class="thumbnail" src="{{product.imageURL}}">
+					<div class="card-body">
+						<h6 class="card-title"><strong>{{product.name}}</strong></h6>
+						<hr>
+						<div class="card-text">
+							<h4><strong>₹{{product.price}}</strong></h4>
+							<div class="rightPart">
+								<button data-product="{{product.id}}" data-action="add"
+									class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>
+{% endblock content %}
